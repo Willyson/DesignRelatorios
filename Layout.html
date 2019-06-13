@@ -1,0 +1,67 @@
+<!DOCYTPE HTML>
+<html>
+    <head>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto&display=swap' rel='stylesheet'>
+        <meta charset='UTF-8'/>
+    </head>
+
+    <style>
+    
+    #container{
+        /*background-color: rgb(26, 104, 187);  /*Encontrar um fundo melhor*/
+        width:1902px;
+        height: 1700px;
+        position: absolute;
+        font-family: Roboto;
+        background-image: radial-gradient(#124882, #0e3664);
+    }
+
+    .relatorioPadrao{
+        background-color: rgba(0,0,0,.6);
+        width:90%;
+        height: 30%;
+        margin: 3em auto auto auto;
+        transition:1s;
+    }
+
+    .relatorioPadrao:hover{
+        background-color: rgba(0,0,0,.8);
+        width:93%;
+        height:31%;
+    }
+
+    .relatorioPadrao:hover > .titulo{
+        font-size:24pt;
+    }
+    
+
+    .titulo{
+        color:white;
+        font-size:22pt;
+        position:relative;
+        letter-spacing: .03em;
+        top:.4em;
+        left:.4em;
+        transition: 1s;
+    }
+    
+    
+    </style>
+
+    <body>
+
+        <div id='container'>                
+            <div id='relatorio1' class='relatorioPadrao'>
+                <p class='titulo'>Vendas por Mês</p>
+            </div>
+            <div id='relatorio2' class='relatorioPadrao'>
+                <p class='titulo'>Maiores clientes </p>
+            </div>
+            <div id='relatorio3' class='relatorioPadrao'>
+                <p class='titulo'>Vendas por Vendedores</p>
+            </div>
+        
+        </div>
+    </body>
+</html>
