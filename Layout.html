@@ -11,7 +11,7 @@
     #container{
         /*background-color: rgb(26, 104, 187);  /*Encontrar um fundo melhor*/
         width:1902px;
-        height: 1700px;
+        height: 1800px;
         position: absolute;
         font-family: Roboto;
         background-image: radial-gradient(#124882, #0e3664);
@@ -20,21 +20,11 @@
     .relatorioPadrao{
         background-color: rgba(0,0,0,.6);
         width:90%;
-        height: 30%;
-        margin: 3em auto auto auto;
+        height: 27%;
+        margin: 3.5em auto auto auto;
         transition:1s;
     }
 
-    .relatorioPadrao:hover{
-        background-color: rgba(0,0,0,.8);
-        width:93%;
-        height:31%;
-    }
-
-    .relatorioPadrao:hover > .titulo{
-        font-size:24pt;
-    }
-    
 
     .titulo{
         color:white;
@@ -46,12 +36,42 @@
         transition: 1s;
     }
     
+
+
+    .destaque{
+        background-color: rgba(0,0,0,.6);;
+        width:90%;
+        position:relative;
+        left:3.2em;
+        text-align: center;
+        text-transform: uppercase;
+        height:3em;
+        
+    }
+
+    .destaque p{
+        position:relative;
+        top:20px;
+        
+        
+    }
+
+    .destaque:hover > p{
+        text-decoration:underline ;
+        text-underline-position: under;
+
+    }
     
     </style>
 
     <body>
 
-        <div id='container'>                
+        <div id='container'> 
+            
+            <div class='titulo destaque'>
+                <p>Análise de negócio da JJBIKE</p>
+            </div>
+            
             <div id='relatorio1' class='relatorioPadrao'>
                 <p class='titulo'>Vendas por Mês</p>
             </div>
