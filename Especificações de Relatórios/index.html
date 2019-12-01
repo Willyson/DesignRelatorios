@@ -1,0 +1,135 @@
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web&display=swap' rel='stylesheet'>
+    <style>
+
+
+
+        #container{
+            width: 1290px;
+            height:1500px;
+            margin: 0px;
+            padding: 0px;
+            position: absolute;
+            font-family: 'Titillium Web', sans-serif;
+        }
+
+
+        
+        .menu{
+            background: rgb(0,60,91);
+            background: linear-gradient(90deg, rgba(0,60,91,1) 0%, rgba(0,45,69,1) 50%, rgba(0,24,38,1) 100%);
+            text-align: center;
+            height: 70px;
+            font-size:25px;
+            color:#fff;
+            font-family: 'Titillium Web', sans-serif;
+            top:30px;
+        }
+
+        .menu p{
+            padding: 10px;
+        }
+    
+
+    .divTable{
+        position: absolute;
+        left:250px;
+        top:150px;
+        
+        font-family: 'Titillium Web', sans-serif;
+        width: 1000px;
+        height: 230px;
+    }
+
+
+    .tbTotalizadores{
+        border-spacing: 20px;
+    
+    }
+
+    .tbTotalizadores tr td{
+        width: 400px;
+        text-align: center;
+        height: 50px;
+        font-weight: bold;
+        border: 1px solid rgba(0, 0, 0, .3);
+        
+    }
+
+    .tbTotalizadores tr{
+        border: 1px solid red;
+    }
+
+    .tdPadrao{
+        background-color:rgba(0,45,69,1);
+        color:#fff;
+        font-weight: bold;
+        
+    }
+
+    .tdSelecionado{
+        background-color: #dbe746;
+    }
+
+
+
+    .subTitulo{
+        position: absolute;
+        top:500px;
+        left:500px;
+        font-size:22px;
+        border-bottom: 1.5px solid rgba(0,45,69,1);
+    }
+
+    .tipoTransacao{
+        border:1px solid #000;
+        position: absolute;
+        top:600px;
+        left:10px;
+        width: 400px;
+        text-align: center;
+    }
+
+    .periodos{
+        border: 1px solid rgba(0,0,0,.5);
+        position: absolute;
+        top:600px;
+        left: 450px;
+        text-align: center;
+        width: 780px;
+    }
+
+    
+    </style>
+
+        
+    
+   <div id='container'>
+        <div class='menu'>
+            <p>SIBIM - Monitoramento Contábil - Visão Geral </p>
+        </div>    
+
+        <!-- Totalizadores -->
+        <div class='divTable'>
+            <table class='tbTotalizadores'>
+                <tr><td class='tdPadrao'>SAQUE</td><td></td> <td class='tdPadrao'>PAGAMENTO</td> <td class='tdSelecionado'>R$ 100.000,00</td> </tr>
+                <tr><td class='tdPadrao'>RECOLHIMENTO</td><td></td> <td class='tdPadrao' >NOTA</td> <td></td> </tr>
+                <tr><td class='tdPadrao'>DÉPOSITO</td><td></td> <td class='tdPadrao' >SUPRIMENTO</td> <td></td> </tr>
+                <tr><td class='tdPadrao' colspan='2'>SALDO</td><td colspan='2'></td></tr>
+            </table>
+
+        </div>
+
+        <div class='subTitulo'>
+            Métrica selecionada para Visualização - *
+
+        </div>
+
+        <div class='tipoTransacao'>
+            Tipo de Transação
+        </div>
+
+        <div class='periodos'>
+            Valores de ** ao Decorrer dos Períodos
+        </div>
+
+    </div>
