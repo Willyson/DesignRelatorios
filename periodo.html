@@ -28,21 +28,31 @@
         background: linear-gradient(90deg, rgba(54,53,72,1) 0%, rgba(19,38,67,1) 49%, rgba(0,30,54,1) 100%); 
         text-align: center;
         color:#fff;
+
             
     }
     .cabecalho p{
         margin-top: 20px;
         font-size: 22px;
         font-weight: bold;
+        text-shadow: 2px 2px #000;
     }
 
 
     .cabecalho span{
         font-size:12px;
-        left: 600px;
+        left: 500px;
         top:-25px;
         display: block;
         position: relative;
+    }
+
+    .logo{
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left:40px;
+        top:15px;
     }
 
     /* Totalizadores */
@@ -50,7 +60,7 @@
     .tots{
         position: absolute;
         width: 1200px;
-        height: 400px;
+        height: 450px;
         border-bottom: 6px solid #000;
         top:75px;
         left:40px; 
@@ -71,14 +81,19 @@
         color: #fff;
         border-radius: 5px;
         box-shadow: 1px 4px rgba(0,0,0,.3) ;
-        text-shadow: 1px 1px #000;
+        text-shadow: 2px 2px #000;
         
+    }
+    .totTransacao p{
+        top:10px;
+        position: relative;
+        display: block;
     }
     
     .destaque{
         position: absolute;
         width: 300px;
-        height: 150px;
+        height: 200px;
         left: 60px;
         text-align: center;
         top:200px;
@@ -88,8 +103,13 @@
         color: #fff;
         border-radius: 5px;
         box-shadow: 1px 4px rgba(0,0,0,.3) ;
-        text-shadow: 1px 1px #000;
+        text-shadow: 2px 2px #000;
         
+    }
+
+
+    .destaque ul li:first-child{
+        margin-top:20px;
     }
 
     .destaque ul li{
@@ -98,7 +118,7 @@
         font-size:16px;
         font-weight: bold;
         text-align: left;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
         border-bottom: 2px solid rgba(0,0,0,.3);
         
     }
@@ -111,6 +131,7 @@
         position: relative;
         height: 40px;
         font-weight: bold;
+        top:10px;
     }
 
 
@@ -132,13 +153,15 @@
     }
 
     .contas span{
-        font-size: 18px;
         display: block;
         width: 250px;
         left: 260px;
         position: relative;
         height: 40px;
         font-weight: bold;
+        font-size: 22px;
+        text-shadow: 2px 2px #000;
+        top:10px;
     }
 
     .abertura{
@@ -148,12 +171,22 @@
     }
 
     .abertura ul li{
-        display: inline-block;
+        display: block;
         border-bottom: 2px solid rgba(0,0,0,.3);
         text-align: center;
         width: 150px;
+        top:10px;
         
     }
+
+    .abertura ul li:nth-child(2){
+        position: relative;
+        left:180px;
+        top:-2px;
+        width: 300px;
+    }
+
+
 
     .abertura ul li:first-child{
         background-color:rgb(0,30,54);
@@ -184,6 +217,14 @@
         
     }
 
+    .manutencao ul li:nth-child(2){
+        display: block;
+        position: relative;
+        left:180px;
+        top:-22px;
+        width: 280px;
+    }
+
    
 
 
@@ -194,7 +235,7 @@
         width:1200px;
         height: 500px;
         border-bottom: 6px solid #000;
-        top:520px;
+        top:570px;
         left:40px;
         text-align: center;
     }
@@ -209,7 +250,7 @@
 
 
     .transacoes-itens span {
-        font-size: 20px;
+        font-size: 22px;
         font-weight: bold;
         color:#fff; 
         display: block;
@@ -225,7 +266,7 @@
         width:1200px;
         height: 700px;
         border-bottom: 6px solid #000;
-        top:1050px;
+        top:1100px;
         left:40px;
         text-align: center;
         border: 3px solid rgba(0,30,54,.5);
@@ -239,7 +280,7 @@
         position: relative;
         top: 10px;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 22px;
         color:#fff;
         text-shadow: 2px 2px #000;
     }
@@ -301,6 +342,7 @@
 <div class='container'>
 
     <div class='cabecalho'>
+        <img src='http://www.mediafire.com/convkey/c670/r61v1enhc9trpr6zg.jpg' class='logo'>   
         <p>SIBIM - Monitoramento de Transação no Portal Caixa - (Unidades)</p> <span>#Confidencial 20</span>
     </div>
 
@@ -316,7 +358,7 @@
             <span class='btnDestaque'>Destaque</span>
             <div class='destaque-itens'>
                 <ul>
-                    <li>AG:</li>
+                    <li>AG:</li><br/>
                     <li>MÊS:</li>
                 </ul>
             </div>
@@ -329,14 +371,12 @@
                 <ul>
                     <li>Aberturas</li>
                     <li></li>
-                    <li></li>
                 </ul>
             </div>
 
             <div class='manutencao'>
                 <ul>
                     <li>Manutenções</li>
-                    <li></li>
                     <li></li>
                 </ul>
             </div>
