@@ -6,32 +6,44 @@
         margin: 0px;
         padding: 0px;
         font-family: 'Titillium Web', sans-serif;
+        
+    }
+
+    .fundo{
+        background-color: rgb(4, 111, 156);
+        width: 100%;
+        height: 10000px;
+        position: absolute;
+        
     }
 
 
     #container{
         width: 1290px;
-        height:2200px;
+        height:10000px;
         margin: 0px;
         padding: 0px;
         position: absolute;
         top:0px;
+        background-color: rgb(4, 111, 156);
+        background-image: url('http://www.mediafire.com/convkey/e9d9/bunatkizff2y41czg.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
         
-        background: #8fa8b4;
-       
     }
 
 
     
     .menu{
         background: rgb(0,60,91);
-        background: linear-gradient(90deg, rgba(0,60,91,1) 0%, rgba(0,45,69,1) 50%, rgba(0,24,38,1) 100%);
+        background: linear-gradient(90deg, rgb(15, 97, 138) 0%, rgb(2, 62, 94) 50%, rgb(1, 57, 88) 100%);
         text-align: center;
         height: 70px;
         font-size:25px;
         color:#fff;
         font-family: 'Titillium Web', sans-serif;
-
+        box-shadow: 1px 1px 2px 2px rgb(8, 16, 51);
     }
 
     .menu p{
@@ -39,6 +51,7 @@
         left:380px;
         top:10px;
         position: absolute;
+        text-shadow: 3px 3px #000;
     }
 
     .menu span{
@@ -47,6 +60,8 @@
         top:40px;
         position: absolute;
         font-size: 12px;
+        font-style: italic;
+        color:rgba(255,255,255,0.5);
     }
 
     .logo{
@@ -67,6 +82,7 @@
     font-family: 'Titillium Web', sans-serif;
     width: 1000px;
     height: 230px;
+    
 }
 
 .descMetrica{
@@ -79,6 +95,7 @@
     width: 300px;
     height:100px;
     left:200px;
+    
 }
 
 .valMetrica{
@@ -102,11 +119,12 @@
     left:10px;
     width: 420px;
     text-align: center;
-    height: 1800px;
+    height: 10000px;
     font-weight: bold;
     color:#000;
     font-size: 22px;
-    background-color:rgba(0,60,91,.1);
+    background-color:rgba(0,60,91,.85);
+    
 }
 
 .tipoTransacao p{
@@ -125,7 +143,8 @@
     font-weight: bold;
     color:#000;
     font-size:22px;
-    background-color:rgba(0,60,91,.1);
+    background-color:rgba(0,60,91,.85);
+
 }
 
 .periodos p{
@@ -147,9 +166,11 @@ p{
     width:380px;
     height: 400px;
     font-weight: bold;
-    color:#000;
+    color:#fff;
     font-size:22px;
-    background-color:rgba(0,60,91,.1);
+    background-color:rgba(0,60,91,.85);
+    text-shadow: 2px 2px #000;
+   
 }
 
 .recolhimento{
@@ -162,9 +183,11 @@ p{
     width:380px;
     height: 400px;
     font-weight: bold;
-    color:#000;
+    color:#fff;
     font-size:20px;
-    background-color:rgba(0,60,91,.1);
+    background-color:rgba(0,60,91,.85);
+    text-shadow: 2px 2px #000;
+    
 }
 
 .topProduto{
@@ -175,11 +198,12 @@ p{
     left:450px;
     text-align: center;
     width:780px;
-    height: 930px;
+    height: 10000px;
     font-weight: bold;
     color:#000;
     font-size:20px;
-    background-color:rgba(0,60,91,.1);
+    background-color:rgba(0,60,91,.85);
+    
 }
 
 
@@ -202,47 +226,46 @@ p{
 </style>
 
     
+<div class='fundo'>
 
-<div id='container'>
-    <div class='menu'>
-        <img src='http://www.mediafire.com/convkey/c670/r61v1enhc9trpr6zg.jpg' class='logo'>
-        <p>SIBIM - Monitoramento Contábil - Visão Geral </p><span>#Confidencial20</span>
-    </div>    
+    </div>
+    <div id='container'>
+        
+        <div class='menu'>
+            <img src='http://www.mediafire.com/convkey/c670/r61v1enhc9trpr6zg.jpg' class='logo'>
+            <p>SIBIM - Monitoramento Contábil - Visão Geral </p><span>#Confidencial20</span>
+        </div>    
 
-    <!-- Totalizadores -->
-    <div class='divTable'>
-        <div class='descMetrica'>
-
+        <!-- Totalizadores -->
+        <div class='divTable'>
+            <div class='descMetrica'>
+            </div>
+            <div class='valMetrica'>
+            </div>
         </div>
-        <div class='valMetrica'>
 
+
+        <div class='tipoTransacao'>
+            
         </div>
 
-    </div>
+        <div class='periodos'>
+            
+        </div>
 
+        <div class='tipoAcesso'>
+            <p>Valores por Região Geopolítica</p>
+        </div>
 
-    <div class='tipoTransacao'>
+        <div class='recolhimento'>
+            <p>Valores por Situação da Transação</p>
+        </div>
+
+        <div class='topProduto'>
+            
+        </div>
+
         
-    </div>
 
-    <div class='periodos'>
-        
     </div>
-
-    <div class='tipoAcesso'>
-        <p>Valores por Região Geopolítica</p>
-    </div>
-
-    <div class='recolhimento'>
-        <p>Valores por Situação da Transação</p>
-    </div>
-
-    <div class='topProduto'>
-        
-    </div>
-
-    <div class='rodape'>
-        <p>Sistema BI do Multicanal - Monitoramento de Transações realizadas no portal (NEGOCIOS.CAIXA) </p>
-    </div>
-
 </div>
