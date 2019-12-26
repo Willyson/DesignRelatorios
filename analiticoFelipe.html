@@ -49,9 +49,6 @@
         p {
             position: relative;
         }
-        .bg_principal{
-            background-color: #000;
-        }
 
         .container_btn {
             position: absolute;
@@ -86,8 +83,6 @@
 
         }
 
-
-
         .titulos {
             position: absolute;
             left:220px;
@@ -109,21 +104,9 @@
 
         .description {
             position: absolute;
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 11px;
             left:220px;
-            top:0px;
-            color: #fff;
-        }
-
-        .header span{
-            color:rgba(255, 255, 255, .4);
-            display: block;
-            left: 1000px;
             top:60px;
-            position: relative;
-            font-size: 12px;
-            font-style: italic;
         }
 
 
@@ -150,10 +133,106 @@
             color: white;
         }
 
+
+
+        .titulos {
+            color:white;
+        }
+
+        .description {
+            color:#ebebeb;
+        }
+
+        .hover-tot:hover {
+            color:#b8ba20;
+        }
+
+        .lightBox{
+            background:rgba(255,255,255,0.95);
+            width:500px;
+            height:500px;
+            position: absolute;
+            left:392.5px;
+            top:320px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 4px rgba(255,255,255,0.2);
+            z-index: 10;
+            display: none;
+            overflow:hidden;
+            text-align: center;
+        }
+
+        .fecharlightbox {
+            width:30px;
+            height:30px;
+            float: right;
+            position: absolute;
+            right:20px;
+            top:15px;
+            color:white;
+            background:red;
+            border-radius:30px;
+            border:none;
+            outline: none;
+            box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.3);
+            font-weight: bold;
+            cursor:pointer;
+            transition: .3s;
+        }
+
+        .fecharlightbox:hover{
+            filter:hue-rotate(20deg);
+        }
+
+        .fecharlightbox span {
+           position: relative;
+           top:5px;
+        }
+
+        .contentLightBox {
+            width:480px;
+            height:420px;
+            position: absolute;
+            top:60px;
+            left:10px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        .contentLightBox span {
+            font-weight: bold;
+            font-size: 18px;
+            position: relative;
+            top: 15px;
+            margin-top: 15px !important;
+            width:75%;
+        }
+
+
+        .titleBox {
+            font-size: 20px;
+            font-weight: bold;
+            position: relative;
+            top: 20px;
+            left:-10px;
+            color:rgba(0,0,0,0.6);
+        }
+
         </style>
 
         <script type="text/javascript">
 
+        function trata_array(array) {
+            var split_array = array.split('|');
+            var max_pos = split_array.length;
+            $('.contentLightBox').empty();
+            for(cont = 0; cont < max_pos; cont++) {
+                $('.contentLightBox').append('<span>'+split_array[cont]+'</span><br><br>');
+            }
+
+
+
+        }
             
 
         $(document).ready(function(){
@@ -174,7 +253,6 @@
                         "background-position": "center",
                         "background-repeat"  : "no-repeat",
                         "z-index"            : "0",
-                        
                         });
 
 
@@ -226,7 +304,16 @@
                         "box-shadow"            : "inset 0px 0px 2000px 100px rgba(0,0,0,0.5)"
                     });
 
-                   
+                    $(obj.nome_classe+" p").css({
+
+                        "position"          : "absolute",
+                        "z-index"           : "0",
+                        "top"               : "-10px",
+                        "left"              : "20px",
+                        "font-weight"       : "bold",
+                        "font-size"         : "22px",
+
+                    });
                 }
 
 
@@ -241,7 +328,7 @@
                 //var img_bg_princ = "https://wallpaper-gallery.net/images/abstract-hd-backgrounds/abstract-hd-backgrounds-8.jpg";
                 var img_bg_princ = "http://www.mediafire.com/convkey/e9d9/bunatkizff2y41czg.jpg";
                 var larg_pag = "1280px";
-                var alt_pag = "10000px";
+                var alt_pag = "1800px";
                 var blur_c = "40px";
 
                 set_default(img_bg_princ, larg_pag, alt_pag);
@@ -259,65 +346,42 @@
                     blur:blur_c
                 };
 
-                var totalizador = {
-                    nome_classe: ".totalizador",
+                var grafico_01_mes = {
+                    nome_classe:".grafico_01_mes",
                     imagem:img_bg_princ,
                     largura_pag:larg_pag,
-                    altura_pag: alt_pag,
-                    largura_obj:"300px",
-                    altura_obg:"150px",
-                    left:"100px",
-                    top:"200px",
+                    altura_pag:alt_pag,
+                    largura_obj:"700px",
+                    altura_obg:"900px",
+                    left:"290px",
+                    top:"830px",
                     blur:blur_c
-                }
+                };
 
-                var destaque = {
-                    nome_classe: ".destaque",
+
+                var tabela01 = {
+                    nome_classe:".tabela01",
                     imagem:img_bg_princ,
                     largura_pag:larg_pag,
-                    altura_pag: alt_pag,
-                    largura_obj:"300px",
-                    altura_obg:"150px",
-                    left:"100px",
-                    top:"400px",
-                    blur:blur_c
-                }
-
-                var contas = {
-                    nome_classe: ".contas",
-                    imagem:img_bg_princ,
-                    largura_pag:larg_pag,
-                    altura_pag: alt_pag,
-                    largura_obj:"500px",
-                    altura_obg:"350px",
-                    left:"640px",
-                    top:"200px",
-                    blur:blur_c
-                }
-
-                var transacoes = {
-                    nome_classe: ".transacoes",
-                    imagem:img_bg_princ,
-                    largura_pag:larg_pag,
-                    altura_pag: alt_pag,
+                    altura_pag:alt_pag,
                     largura_obj:"1220px",
-                    altura_obg:"500px",
+                    altura_obg:"450px",
                     left:"20px",
-                    top:"630px",
+                    top:"340px",
                     blur:blur_c
-                }
+                };
 
-                var operacoes = {
-                    nome_classe:".operacoes",
+                var info = {
+                    nome_classe:".info",
                     imagem:img_bg_princ,
                     largura_pag:larg_pag,
-                    altura_pag: alt_pag,
-                    largura_obj:"1220px",
-                    altura_obg:"10000px",
-                    left:"20px",
-                    top:"1200px",
+                    altura_pag:alt_pag,
+                    largura_obj:"950px",
+                    altura_obg:"100px",
+                    left:"165px",
+                    top:"180px",
                     blur:blur_c
-                }
+                };
 
 
 
@@ -327,50 +391,116 @@
                 
 
                 container_creator(header);
-                container_creator(totalizador);
-                container_creator(destaque);
-                container_creator(contas);
-                container_creator(transacoes);
-                container_creator(operacoes);
+                container_creator(grafico_01_mes);
+                container_creator(tabela01);
+                container_creator(info);
 
                 //FIM GLASS
-            
+            $( ".lightBox" ).draggable();
 
-       
+            $('.windowDetalhe').click(function(){
+
+            $('.lightBox').fadeIn();
+            var titulo = $(this).attr('name');
+            $('.titleBox').text(titulo);
+            if($(this).attr('id') == 'contas_abrir') {
+
+                trata_array(contas_array);
+            }
+
+            if($(this).attr('id') == 'dv_abrir') {
+
+                trata_array(dv_array);
+            }
+
+            if($(this).attr('id') == 'data_abrir') {
+
+                trata_array(data_array);
+            }
+
+            if($(this).attr('id') == 'user_abrir') {
+
+                trata_array(user_array);
+            }
+
+            if($(this).attr('id') == 'agencia_abrir') {
+
+                trata_array(agencia_array);
+            }
+
+            if($(this).attr('id') == 'rede_abrir') {
+
+                trata_array(rede_array);
+            }
+
+            if($(this).attr('id') == 'marca_abrir') {
+
+                trata_array(marca_array);
+            }
+
+            if($(this).attr('id') == 'cesta_abrir') {
+
+                trata_array(cesta_array);
+            }
+        });
+
+
+        $('.fecharlightbox').click(function(){
+            $('.lightBox').fadeOut();
+        });
 
         });
 
         </script>
 
-<div class="bg_principal">
-    <div class="header">
-        <div></div>
-        <img src="http://www.mediafire.com/convkey/9f2e/2znhona0wi2081zzg.jpg" class="logo-header">
-        <p class="description">
-            Relatórios de monitoramento das trilhas de auditoria por Unidade.<br> 
-            O painel tem como fundamento monitorar as trilhas apresentadas por Unidade<br>
-        </p>
-        <span>#Confidencial20</span>
-    </div>
 
-    <div class="totalizador">
-        <div></div>
-    </div>
+        <div class="bg_principal">
+            
 
-    <div class="destaque">
-        <div></div>
-    </div>
 
-    <div class="contas">
-        <div></div>
-    </div>
+            <div class="header"><div></div>
 
-    <div class="transacoes">
-        <div></div>
-    </div>
+                <img src="http://www.mediafire.com/convkey/9f2e/2znhona0wi2081zzg.jpg" class="logo-header"></div>
 
-    <div class="operacoes">
-        <div></div>
-    </div>
 
+                <a href="#" title="Relatórios do SIBIM (SIPAN) - Pressione (CTRL + RCLICK) para foto do relatório"><p class="titulos" style="font-family: 'Titillium Web', sans-serif;">SIBIM - Monitoramento do Multicanal</p></a>
+                <p class="description">
+                Relatórios analítico de monitoramento das trilhas de auditoria.<br> 
+                O painel tem como fundamento monitorar as trilhas apresentadas que são detalhadas a partir do relatório sintético de período e unidades.<br>
+                Os dados estão sendo apresentados por diferentes visões e com drag de detalhamento das informações que são apresentadas mais de uma vez.
+                </p>
+
+            </div>
+
+
+            <div class="info"><div></div>
+
+
+            </div>
+
+
+
+
+            <div class="tabela01"><div></div>
+
+
+            </div>
+
+            <div class="grafico_01_mes"><div></div>
+            <p class="subtitulos">Controle Negocial - Mensagens de Retorno do Sistema</p>
+
+            </div>
+
+
+
+
+
+        </div>
+
+<div class="lightBox">
+    <span class="titleBox">Sem Titulo</span>
+    <div class="fecharlightbox"><span>x</span></div>
+    <div class="contentLightBox" >
+        
+    </div>
 </div>
