@@ -1,0 +1,139 @@
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<title>IPC</title>
+<style type="text/css">
+/*
+    Folha de estilos para relatórios da caixa economica (SAP BusinessObject - Web Intelligence)
+    Desenvolvido por: Felipe Farias Garcia;
+    Empresa: First Decision;
+    Titulo: Frosted Glass;
+    Versão: 1.19.1;
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,700');
+
+* {
+    font-family: Titillium Web, sans-serif;
+    text-shadow: 0px 0px 3px  rgba(0,0,0,0.4);
+  }
+
+::-webkit-scrollbar
+{
+  width: 5px;  /* for vertical scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.01);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/*body {
+	overflow: hidden;
+}*/
+
+.body {
+	position: fixed;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	background:url('https://www.fluxbcs.com/wp-content/uploads/2013/04/texrura-metal-ios-linen-texture-grey-by-vegardhw-on-deviantart-1605475.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+
+.concentrador {
+	position: absolute;
+	left:0;
+	top:100px;
+	bottom:0;
+	width: 100%;
+	background:rgba(0,0,0,.5);
+	box-shadow:inset 0px 0px 3000px 1px rgba(0,0,0,1);
+}
+
+.header {
+	position: absolute;
+	width:100%;
+	height:100px;
+	background:rgba(255,255,255,0.8);
+	box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.8);
+	left:0;
+	top:0;
+}
+
+.logoCaixa {
+	position: relative;
+	width:60px;
+	top:23px;
+	left:60px;
+}
+
+.headerTitle {
+	font-size: 25px;
+	font-weight: bold;
+	color:#2b2b2b;
+	position: relative;
+	left:100px;
+	top:7px;
+}
+
+.box{
+    background:rgba(69, 69, 69,0.7);
+	position: absolute;
+	top:25px;
+	left:100px;
+	right:25px;
+	bottom:150px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.4);
+	text-align: center;
+    width:500px;
+    height: 400px;
+}
+
+.indicadores{
+    left:700px;
+}
+
+.quadro{
+    left:100px;
+    top:500px;
+    width: 1100px;
+}
+
+</style>
+
+
+</script>
+<div class="body">
+	<div class="header">
+		<a href="#"><img src="http://www.mediafire.com/convkey/9f2e/2znhona0wi2081zzg.jpg" class="logoCaixa"></a>
+		<span class="headerTitle">SIBIM - Desafios</span>
+	</div>
+    
+    <div class="concentrador">
+        
+        <div class="box">
+        </div>
+
+        <div class="box indicadores">
+
+        </div>
+
+        <div class="box quadro">
+
+        </div>
+
+
+	</div>
+	</div>	
+</div>

@@ -1,0 +1,835 @@
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<title>IPC</title>
+<style type="text/css">
+/*
+    Folha de estilos para relatórios da caixa economica (SAP BusinessObject - Web Intelligence)
+    Desenvolvido por: Felipe Farias Garcia;
+    Empresa: First Decision;
+    Titulo: Frosted Glass;
+    Versão: 1.19.1;
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,700');
+
+* {
+    font-family: Titillium Web, sans-serif;
+    text-shadow: 0px 0px 3px  rgba(0,0,0,0.4);
+    scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0,0,0,0.1);
+  	scrollbar-width: thin;
+  }
+
+::-webkit-scrollbar
+{
+  width: 5px;  /* for vertical scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.01);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.5);
+}
+
+body {
+	overflow: hidden;
+	width:100%;
+	position: absolute;
+	left:0;
+	top:0;
+	bottom:0;
+	right:0;
+}
+
+.body {
+	position: fixed;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	background:url('https://www.fluxbcs.com/wp-content/uploads/2013/04/texrura-metal-ios-linen-texture-grey-by-vegardhw-on-deviantart-1605475.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+
+.concentrador {
+	position: absolute;
+	left:0;
+	top:100px;
+	bottom:0;
+	width: 100%;
+	background:rgba(0,0,0,.5);
+	box-shadow:inset 0px 0px 3000px 1px rgba(0,0,0,1);
+}
+
+.header {
+	position: absolute;
+	width:100%;
+	height:100px;
+	background:rgba(255,255,255,0.8);
+	box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.8);
+	left:0;
+	top:0;
+}
+
+.logoCaixa {
+	position: relative;
+	width:60px;
+	top:23px;
+	left:60px;
+}
+
+.headerTitle {
+	font-size: 25px;
+	font-weight: bold;
+	color:#2b2b2b;
+	position: relative;
+	left:100px;
+	top:7px;
+}
+
+.launcherBar {
+	position: absolute;
+	width:700px;
+	height:80px;
+	background:rgba(255,255,255,0.03);
+	box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1);
+	bottom: 35px;
+	left:calc(50% - 350px);
+	border-radius: 15px;
+	transition: 1.2s;
+}
+
+.launcherBar:hover {
+	background:rgba(80,80,80,0.4);
+	box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.4);
+	cursor: pointer;	
+}
+
+
+.contextWindow {
+	background:rgba(69, 69, 69,0.7);
+	position: absolute;
+	top:25px;
+	left:25px;
+	right:25px;
+	bottom:150px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.4);
+	text-align: center;
+}
+
+.guidetext {
+	position: relative;
+	font-size: 40px;
+	top:45%;
+	color:rgba(0,0,0,0.02);
+}
+
+.iconsAlign {
+	position: relative;
+	text-align: center;
+	margin-top:12px;
+}
+
+.iconBar {
+	width:55px;
+	height:55px;
+	margin-left:20px;
+	opacity: 10%;
+	transition: .6s;
+}
+
+.iconBar:hover {
+	filter: drop-shadow(0px 0px 10px rgba(255,255,255,0.5));
+}
+
+.boxContent {
+	position: absolute;
+	background:rgba(0,0,0,0.2);
+	box-shadow: inset 0px 0px 50px 1px rgba(50,50,50,0.3);
+	padding-top: 20px;
+	display: none;
+}
+
+.reportDescription {
+	left:20px;
+	top:20px;
+	bottom:20px;
+	width:calc(40% - 40px);
+	padding-left: 20px;
+	padding-right: 20px;
+	word-wrap: break-word;
+}
+
+.reportParameters {
+	right:20px;
+	top:20px;
+	bottom:20px;
+	width:calc(60% - 60px);
+}
+
+.title {
+	font-size:32px;
+	color:rgba(255,255,255,0.5);
+	font-weight: bold;
+}
+
+.Description {
+	font-size:17px;
+	color:rgba(255,255,255,0.5);
+	text-align: justify;
+	text-indent: 40px;
+	white-space: normal;
+	line-height: 30px;
+}
+
+.testeajax {
+	color:white;
+}
+
+.headerParam {
+	position: relative;
+	width:30%;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.quantity {
+	left:10%;
+}
+
+.maxdate {
+	right:10%;
+	margin-top:-70px;
+	position: absolute;
+}
+
+.tableTitle {
+	font-size: 14px;
+	color:rgba(120,120,120,0.9);
+	text-align: left;
+	font-weight: 100;
+}
+
+.tableContent {
+	font-size: 26px;
+	text-align: right;
+	color: rgba(146, 250, 0, 0.5);
+	border-bottom: 1px solid white !important;
+}
+
+.borderContent {
+	border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.parameterTitleList {
+	position: relative;
+	font-size: 19px;
+	color:rgba(255,255,255,0.8);
+}
+
+.paramListConteiner {
+	padding:10px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	position: absolute;
+	right: 0;
+	left:0;
+	bottom: 0;
+	top: 200px;
+}
+
+
+.selectParam, .dataPicker {
+	width:100%;
+	height:35px;
+	padding: 5px;
+	outline: none;
+	background:rgba(255,255,255,0.1);
+	border-radius: 5px;
+	border:none;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	transition: .5s;
+	color:white;
+}
+
+.selectParam:focus, .dataPicker:focus {
+	background:rgba(255,255,255,0.5);
+	border-bottom: 4px solid rgba(255,255,255,0.6);
+}
+
+.tableParamLeft {
+	margin-left:10%;
+	width:80%;
+}
+
+.tableTitleParam {
+	color:orange;
+	font-size: 16px;
+}
+
+.openReport {
+	position: relative;
+	width: 50%;
+	height: 50px;
+	outline: none;
+	margin-top:25px;
+	transition: .5s;
+	background:rgb(242, 93, 0);
+	border:none;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color:rgba(255,255,255,0.9);
+	border-radius: 15px;
+
+}
+
+.openReport:hover {
+	cursor: pointer;
+	background:rgb(255, 171, 61);
+	color:black;
+	box-shadow: 0px 0px 5px 1px rgba(255, 171, 61, 0.4);
+}
+
+.backLightBox {
+	position: absolute;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	background:rgba(0,0,0,0.8);
+	display: none;
+}
+
+.LightBox {
+	width:30%;
+	height:60%;
+	background:rgba(255,255,255,1);
+	position: absolute;
+	padding:30px;
+	left:calc(35% - 30px);
+	top:calc(20% - 30px);
+	display: none;
+	text-align: center;
+}
+
+.lightBoxTitle {
+	color:rgba(50,50,50,0.9);
+	font-size: 20px;
+}
+
+.searchLightBox {
+	width:80%;
+	margin-top: 30px;
+	height: 45px;
+	padding: 10px;
+	outline: none;
+	text-align: center;
+	background:rgba(0,0,0,0.1);
+	border:none;
+	border-radius: 15px;
+	font-size: 19px;
+}
+
+.contentValuesParam {
+	position: absolute;
+	left:0;
+	right:0;
+	bottom:0;
+	top:200px;
+	overflow: auto;
+}
+
+.valuesRequest {
+	text-transform: uppercase;
+	line-height: 30px;
+	font-size: 18px;
+	color:rgba(70,70,70,0.8);
+	transition: .3s;
+}
+
+.valuesRequest:hover {
+	color:rgba(255, 149, 0,0.9);
+	font-size:19px;
+	text-decoration:underline;
+	cursor: pointer;
+}
+
+.tableParamValues {
+	width:80%;
+	margin-left:10%;
+	text-align: center;
+}
+
+</style>
+
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+
+	//CONTROLE DE BROWSER
+	var heightT = $("body").innerHeight();
+	var widthT = $(document).width();
+	$('.body').css('width',widthT+'px');
+	$('.body').css('height',heightT+'px');
+	//Matriz de informações
+	var matrizPrincipal = 
+	[
+		['servicoDesafio','Serviços dos Desafios', 'Nome Parametro', DesafioServico],
+		['canalDesafio','Canal dos Desafios', 'Nome Parametro', DesafioCanal],
+		['situacaoDesafio','Situação dos Desafios', 'Nome Parametro', DesafioSituacao],
+		['clienteDesafio','CPF/NIS do Cliente nos Desafios', 'Nome Parametro', DesafioCliente],
+		['perguntaPergunta','Código e Descrição da Pergunta', 'Nome Parametro', PerguntaPergunta ],
+		['ordemPergunta','Ordem de Apresentação das Perguntas', 'Nome Parametro', PerguntaOrdem ],
+		['statusPergunta','Status das Perguntas', 'Nome Parametro', PerguntaStatus ],
+		['clientePergunta','CPF/NIS do Cliente na Pergunta', 'Nome Parametro', PerguntaCliente ],
+		['canalPergunta','Canal da Pergunta', 'Nome Parametro', PerguntaCanal ],
+		['servicoPergunta','Serviço da Pergunta', 'Nome Parametro', PerguntaServico ],
+		['servicoBloqueio','Serviço do Bloqueio', 'Nome Parametro', BloqueioServico  ],
+		['canalBloqueio','Canal do Bloqueio', 'Nome Parametro', BloqueioCanal  ],
+		['clienteBloqueio','CPF/NIS do Cliente no Bloqueio', 'Nome Parametro', BloqueioCliente  ]
+	]
+
+	
+
+    $('a').tooltip({
+        track: true
+    });
+
+    $('.backLightBox').click(function() {
+    	$('.backLightBox').fadeOut();
+    	$('.LightBox').fadeOut();
+    });
+    //transicao launchbar
+    $('.launcherBar').mouseenter(function() {
+    	$('.iconBar').css('opacity','100%');
+    });
+    $('.launcherBar').mouseleave(function() {
+    	$('.iconBar').css('opacity','10%');
+    });
+    //fimtrans
+
+    $( ".dataPicker" ).datepicker({
+    	changeMonth: true,
+     	changeYear: true,
+     	dateFormat: 'dd/mm/yy'
+    });
+  
+
+  //----------------------------------------------
+    var urlprincipal = window.location.href;
+    var urlSplit = urlprincipal.split('/BOE');
+    var urlBO = urlSplit[0];
+    var tokenAdd 	 = '/biprws/logon/adsso';
+
+
+	var btnOpenReport = document.querySelector('.openReport');
+	var relatorio= "";
+
+	function splitElement(element){
+		let splitElement = element.split('-');
+		return  splitElement[0].trim();
+	}
+
+	function removePeriod(element){
+		return String(element).replace('.','');
+	}
+
+
+	btnOpenReport.addEventListener('click', function(){
+
+		var link_bo = window.location.href;
+		var link_bo_split = link_bo.split('BOE/');
+		var opendoc;
+
+		
+		var dataInicial = document.querySelector('#datepickerInicial').value;
+		var dataFinal   = document.querySelector('#datepickerFinal').value;
+
+		if (relatorio == 'desafio'){
+
+			let servico = splitElement(document.querySelector('#contentParam01').value);
+			let canal   =  splitElement(document.querySelector('#contentParam02').value);
+			let situacao = splitElement(document.querySelector('#contentParam03').value);
+			let cliente =  removePeriod(document.querySelector('#contentParam04').value);
+
+			opendoc = link_bo_split[0]+`BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=FsxxE157gAMA4A4AAAB36dUTAFBWjghR&sRefresh=Y&lsSdataInicial=${dataInicial}&lsSdataFinal=${dataFinal}&lsScliente=${cliente}&lsScanal=${canal}&lsSservico=${servico}&lsSsituacao=${situacao}`;
+			
+			//console.log(opendoc);
+			
+
+		}else if (relatorio == 'perguntas'){
+			let pergunta = splitElement(document.querySelector('#contentParam01').value);
+			let ordem = splitElement(document.querySelector('#contentParam02').value);
+			let status = splitElement(document.querySelector('#contentParam03').value);
+			let cliente = splitElement(document.querySelector('#contentParam04').value);
+			let canal = splitElement(document.querySelector('#contentParam05').value);
+			let servico = splitElement(document.querySelector('#contentParam06').value);
+
+			opendoc = link_bo_split[0]+`BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=FkJ6E16hYAQA4A4AAADXSNUTAFBWjghR&sRefresh=Y&lsSdataInicial=${dataInicial}&lsSdataFinal=${dataFinal}&lsSpergunta=${pergunta}&lsSordem=${ordem}&lsSsituacaoPergunta=${status}&lsScliente=${cliente}&lsScanal=${canal}&lsSservico=${servico}`;
+
+			//console.log(opendoc);
+			
+		}else if (relatorio == 'blacklist'){
+
+			let servico = splitElement(document.querySelector('#contentParam01').value);
+			let canal = splitElement(document.querySelector('#contentParam02').value);
+			let cliente = splitElement(document.querySelector('#contentParam03').value);
+
+			opendoc = link_bo_split[0]+`BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=FoprE14XvgwA4A4AAADHN9QTAFBWjghR&sRefresh=Y&lsSdataInicial=${dataInicial}&lsSdataFinal=${dataFinal}&lsSservico=${servico}&lsScanal=${canal}&lsScliente=${cliente}`;
+
+			
+			//console.log(opendoc);
+
+
+		}
+
+		window.open(opendoc, 'OpenDocument', 'fullscreen=yes');
+
+	});
+	
+    
+
+    //Sistema de abertura de detalhes de relatórios
+   	$('.openDetails').click(function(){
+   		var reportName = $(this).attr('name');
+		relatorio = $(this).attr('name');
+		
+
+		
+
+   		if (reportName == 'desafio') {
+   			openReportDesafio();
+   		} 
+   		if (reportName == 'perguntas') {
+   			openReportPergunta();
+   		}
+
+   		if (reportName == 'blacklist') {
+   			openReportBlacklist();
+   		}
+
+
+   	});
+   	//Abertura do detalhamento dos parametros
+   	$(".searchLightBox").on("keyup", function() {
+	    var value = $(this).val().toLowerCase();
+	    $(".tableParamValues tr").filter(function() {
+	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    });
+	  });
+
+   	$('.selectParam').click(function() {
+   		var requestValues = $(this).attr('name');
+   		$('.backLightBox').fadeIn();
+   		$('.LightBox').fadeIn();
+   		$('.searchLightBox').val('');
+   		$('.tableParamValues tbody').text('');
+   		for (var countPos = 0; countPos <= matrizPrincipal.length; countPos++) {
+   			if(matrizPrincipal[countPos][0] == requestValues) {
+   				$(".lightBoxTitle").text(matrizPrincipal[countPos][1]);
+   				for (var i = 0; i < matrizPrincipal[countPos][3].length; i++) {
+   					$('.tableParamValues tbody').append("<tr><td><span class='valuesRequest' id='valueNum"+i+"'>"+matrizPrincipal[countPos][3][i]+"</span><td></tr>");
+   				}
+   				break;
+   			}
+   		}
+   		$('.valuesRequest').click(function() {
+   			var paramSelect = $(this).text();
+   			$("."+requestValues).val(paramSelect);
+   			$('.backLightBox').fadeOut();
+    		$('.LightBox').fadeOut();
+   		});
+
+   		
+   	});
+
+
+
+
+
+   	//FUNCTIONS DE TRATAMENTO DE PARAMETROS E DETALHES
+   	//FUNCTION 1 - REPORT DE DESAFIO
+   	function openReportDesafio() {
+   		$('.boxContent').fadeIn();
+   		$('.guidetext').fadeOut();
+   		$('.reportTitle').text('Relatório de Desafios');
+   		$('.Description').text('O relatório de desafios, tem como intuito apresentar as informações dos desafios realizados no sistema de identificação pessoal do cliente pela Caixa Econômica Federal, a fim de realizar a autenticação de clientes que não estão utilizando o cartão para acesso. As informações estão apresentadas por diferentes visões que podem ser configuradas ao lado direito, nos parâmetros de visualização, sendo elas, as datas entre a geração dos desafios, canal, serviço e situação dos desafios, como: criado, recusado, bloqueado ou sucesso.');
+   		$('.paramTable4').fadeOut();
+   		$('#nameParam04, #contentParam04').fadeIn();
+   		$('.QtdHeader').text('Quantidade de Desafios');
+   		$('#nameParam01').text('Serviço');
+   		$('#nameParam02').text('Canal');
+   		$('#nameParam03').text('Situação do Desafio');
+   		$('#nameParam04').text('Cliente');
+   		$('#contentParam01, #contentParam02, #contentParam03, #contentParam04').attr('class','');
+   		$('#contentParam01').addClass('servicoDesafio selectParam');
+   		$('#contentParam02').addClass('canalDesafio selectParam');
+   		$('#contentParam03').addClass('situacaoDesafio selectParam');
+   		$('#contentParam04').addClass('clienteDesafio selectParam');
+
+   		$('#contentParam01').attr('name','servicoDesafio');
+   		$('#contentParam02').attr('name','canalDesafio');
+   		$('#contentParam03').attr('name','situacaoDesafio');
+   		$('#contentParam04').attr('name','clienteDesafio');
+
+
+   		$('#qtdH').text(qtdDesafio);
+   		$('#DateH').text(maxDTDesafio)
+   	}
+   	//FUNCTION 2 - REPORT DE PERGUNTAS
+   	function openReportPergunta() {
+   		$('.boxContent').fadeIn();
+   		$('.guidetext').fadeOut();
+   		$('.reportTitle').text('Relatório de Perguntas');
+   		$('.Description').text('O relatório de blacklist, tem como intuito apresentar as informações a respeito dos clientes que foram bloqueados enquanto realizavam os desafios, onde atingiram a quantidade máxima de tentativas ao responder errado as perguntas dos desafio, ao lado direito pode ser feita a escolha dos parâmetros para visualização detalhada das informações..');
+   		$('.paramTable4, #nameParam04, #contentParam04').fadeIn();
+   		$('.QtdHeader').text('Quantidade de Bloqueios');
+   		$('#nameParam01').text('Código e Pergunta');
+   		$('#nameParam02').text('Ordem das Perguntas');
+   		$('#nameParam03').text('Status');
+   		$('#nameParam04').text('Cliente');
+   		$('#nameParam05').text('Canal');
+   		$('#nameParam06').text('Serviço');
+   		$('#contentParam01, #contentParam02, #contentParam03, #contentParam04, #contentParam05, #contentParam06').attr('class','');
+   		$('#contentParam01').addClass('perguntaPergunta selectParam');
+   		$('#contentParam02').addClass('ordemPergunta selectParam');
+   		$('#contentParam03').addClass('statusPergunta selectParam');
+   		$('#contentParam04').addClass('clientePergunta selectParam');
+   		$('#contentParam05').addClass('canalPergunta selectParam');
+   		$('#contentParam06').addClass('servicoPergunta selectParam');
+
+   		$('#contentParam01').attr('name','perguntaPergunta');
+   		$('#contentParam02').attr('name','ordemPergunta');
+   		$('#contentParam03').attr('name','statusPergunta');
+   		$('#contentParam04').attr('name','clientePergunta');
+   		$('#contentParam05').attr('name','canalPergunta');
+   		$('#contentParam06').attr('name','servicoPergunta');
+
+
+   		$('#qtdH').text(qtdPergunta);
+   		$('#DateH').text(maxDTPergunta)
+   	}
+
+   	//FUNCTION 3 - REPORT DE BLOQUEIOS
+   	function openReportBlacklist() {
+   		$('.boxContent').fadeIn();
+   		$('.guidetext').fadeOut();
+   		$('.reportTitle').text('Relatório de Blacklist');
+   		$('.Description').text('O relatório de perguntas, apresenta as informações a respeitos das perguntas que foram realizadas nos desafios de identificação pessoal do cliente, com o intuito de apresentar, qual a situação em que se encontram as perguntas, quais as suas respostas naquele desafio e qual a posição em que ela se apresenta no decorrer de criação dos desafios. Exemplo: a pergunta 1 aparece em sua maioria na primeira opção para ser respondida nos desafios, a fim de criar uma análise dessas informações para aprimorações do sistema.');
+   		$('.paramTable4').fadeOut();
+   		$('#nameParam04, #contentParam04').fadeOut();
+   		$('.QtdHeader').text('Média de tentativas dos Clientes');
+   		$('#nameParam01').text('Serviço');
+   		$('#nameParam02').text('Canal');
+   		$('#nameParam03').text('Cliente');
+   		$('#contentParam01, #contentParam02, #contentParam03, #contentParam04, #contentParam05, #contentParam06').attr('class','');
+   		$('#contentParam01').addClass('servicoBloqueio selectParam');
+   		$('#contentParam02').addClass('canalBloqueio selectParam');
+   		$('#contentParam03').addClass('clienteBloqueio selectParam');
+
+   		$('#contentParam01').attr('name','servicoBloqueio');
+   		$('#contentParam02').attr('name','canalBloqueio');
+   		$('#contentParam03').attr('name','clienteBloqueio');
+
+
+   		$('#qtdH').text(bloqQuantity);
+   		$('#DateH').text(maxDTBloqueio )
+   	}
+
+
+
+});
+
+</script>
+<div class="body">
+	<div class="header">
+		<a href="#"><img src="http://www.mediafire.com/convkey/9f2e/2znhona0wi2081zzg.jpg" class="logoCaixa"></a>
+		<span class="headerTitle">SIBIM - Identificação Positiva do Cliente</span>
+	</div>
+	<div class="concentrador">
+
+		<div class="contextWindow">
+			<span class="guidetext">Selecione um dos relatórios do IPC abaixo</span>
+			<div class="reportDescription boxContent">
+				<span class="reportTitle title">Standart Title</span><br>
+				<p class="Description">
+					Standart Description
+				</p>
+			</div>
+			<div class="reportParameters boxContent">
+				<span class="parameterTitle title">Configure como deseja visualizar os dados:</span><br>
+
+					<table class="quantity headerParam">
+						<thead>
+							<tr class="tableTitle">
+								<th class="QtdHeader">Quantidade de +FATO+</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="tableContent">
+								<td class="borderContent" id="qtdH">203441</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="maxdate headerParam">
+						<thead>
+							<tr class="tableTitle">
+								<th class="DataHeader">Dados até:</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="tableContent">
+								<td class="borderContent" id="DateH">12/01/2020</td>
+							</tr>
+						</tbody>
+					</table>
+					
+			<!--INICIO DOS PARAMETROS DINAMICOS-->
+			<p class="parameterTitleList">Lista de Parâmetros:</p>
+				<div class="paramListConteiner">
+					<!--PARAMETRO 1-->
+					<table class="paramTable1 tableParamLeft headerParam">
+						<thead>
+							<tr class="tableTitleParam">
+								<th id="datainicio">Data Inicial</th>
+								<th id="datafim">Data Final</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="tableContentParam">
+								<td>
+
+									<input type="text" class="dataPicker" id="datepickerInicial" placeholder="01/01/2020">
+
+								</td>
+								<td>
+
+									<input type="text" class="dataPicker" id="datepickerFinal" placeholder="12/12/2020">
+
+								</td>
+							</tr>
+						</tbody>
+
+					</table>
+					<!--PARAMETRO 2-->
+					<table class="paramTable2 tableParamLeft headerParam">
+						<thead>
+							<tr class="tableTitleParam">
+								<th id="nameParam01">Nome do Parametro</th>
+								<th id="nameParam02">Nome do Parametro</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="tableContentParam">
+								<td>
+
+									<input type="text" name="param01" id="contentParam01" class="selectParam">
+
+								</td>
+								<td>
+
+									<input type="text" name="param02" id="contentParam02" class="selectParam">
+
+								</td>
+							</tr>
+						</tbody>
+
+					</table>
+					<!--PARAMETRO 2-->
+					<table class="paramTable3 tableParamLeft headerParam">
+						<thead>
+							<tr class="tableTitleParam">
+								<th id="nameParam03">Nome do Parametro</th>
+								<th id="nameParam04">Nome do Parametro</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="tableContentParam">
+								<td>
+
+									<input type="text" name="param03"  id="contentParam03" class="selectParam">
+
+								</td>
+								<td>
+
+									<input type="text" name="param04" id="contentParam04" class="selectParam">
+
+								</td>
+							</tr>
+						</tbody>
+
+					</table>
+					<!--PARAMETRO 3-->
+					<table class="paramTable4 tableParamLeft headerParam">
+						<thead>
+							<tr class="tableTitleParam">
+								<th id="nameParam05">Nome do Parametro</th>
+								<th id="nameParam06"  class="lastParam">Nome do Parametro</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="tableContentParam">
+								<td>
+
+									<input type="text" name="param05"  id="contentParam05"  class="selectParam">
+
+								</td>
+								<td class="lastParam">
+
+									<input type="text" name="param06" id="contentParam06" class="selectParam">
+
+								</td>
+							</tr>
+						</tbody>
+
+					</table>
+					<!--FIM DOS PARAMETROS-->
+					<button class="openReport">Abrir Relatório</button>
+
+			<!--FIM DOS PARAMETROS DINAMICOS-->
+				</div>
+			</div>
+		</div>
+
+		<div class="launcherBar">
+			<div class="iconsAlign">	
+				<a title="Relatório de Desafios" class="openDetails" name='desafio'><img src="https://img.icons8.com/color/96/000000/questions.png" class="iconBar"></a>
+				<a title="Relatório de Perguntas" class="openDetails" name='perguntas'><img src="https://img.icons8.com/color/96/000000/question-group.png" class="iconBar"></a>
+				<a title="Relatório da Blacklist" class="openDetails" name='blacklist'><img src="http://www.mediafire.com/convkey/cecc/r7osc30ihy2w20hzg.jpg" class="iconBar"></a>
+				<a title="Dashboard entre informações" class="openDetails" name='dashboard'><img src="https://img.icons8.com/color/48/000000/doughnut-chart--v1.png" class="iconBar"></a>
+			</div>
+		</div>
+	</div>	
+
+	<div class="backLightBox"></div>
+	<div class="LightBox">
+		<span class="lightBoxTitle title">Standart Title</span><br>
+		<input type="text" name="search" class="searchLightBox" placeholder="digite sua busca">
+		<div class="contentValuesParam">
+			<table class="tableParamValues">
+				<thead>
+					<tr>					
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+

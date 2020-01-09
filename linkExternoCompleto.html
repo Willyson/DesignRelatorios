@@ -1,0 +1,36 @@
+="
+<script>
+
+$(document).ready(function(){
+
+$('#"+[dataww]+FormatoNúmero([Número da Remessa];"#")+FormatoNúmero([Qtde. Débitos];"#")+FormatoNúmero([Valor de Débito];"#")+FormatoNúmero([Ano];"#")+"').click(function(){
+
+
+var scnwidth = (screen.width) - 5;
+var scnheight = screen.height;
+var width = 1200;
+var height = 900;
+var link_bo = window.location.href;
+var link_bo_split = link_bo.split('BOE/');
+
+  var opendoc = link_bo_split[0]+'BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=ATes5f6_YOlAs9jCYtlMJEM&sRefresh=Y&lsSconta="+[Número da Conta de Débito]+"&lsSconvenio="+[Número do Convênio]+"&lsSano="+[Ano]+"&lsSmes="+[Mês]+"&lsSdia="+[Dia]+"&mode=part&sReportPart=UIREF:RID=34:BID=49';
+  var left = -5;
+  var top = 20;
+
+  window.open( opendoc ,'OpenDocument', 'width='+scnwidth+', height='+height+', top='+top+', left='+left+', scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no');
+
+
+
+    });
+
+});
+
+</script>
+
+
+<a id='"+[dataww]+FormatoNúmero([Número da Remessa];"#")+FormatoNúmero([Qtde. Débitos];"#")+FormatoNúmero([Valor de Débito];"#")+FormatoNúmero([Ano];"#")+"' class='tabo'>
+DETALHES 
+</a>
+
+
+"

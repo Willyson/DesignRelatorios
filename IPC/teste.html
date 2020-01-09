@@ -1,0 +1,42 @@
+="<a class='link' > Detalhes </a>
+
+    <script>
+
+        var linkDocumento = 'BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=FoprE14XvgwA4A4AAADHN9QTAFBWjghR&sRefresh=Y&lsSdataInicial="+[Data]+"';
+        var keysExternas = ['"+[Ano]+"', '"+[Mês]+"', '"+[Dia]+"', '"+[Número do Serviço]+"'];
+
+
+        var atributos = {
+            ano : '"+[Ano]+"',
+            mes : '"+[Mês]+"'
+        }
+
+        function elementsLink(){
+            return document.querySelectorAll('.link');
+        }
+
+
+
+        function paramLinkDoc(filtro, objeto){
+            filtro = filtro.replace('.','');
+            linkDocumento += `&lsS${filtro}=${objeto}`;
+        }
+
+
+        window.open(linkDocumento, 'OpenDocument', width='1200', height='900');
+
+        
+
+
+        
+
+    elementsLink().forEach(function(item){
+        item.setAttribute('href', `${linkDocumento}`);
+    });
+
+
+    
+
+    </script>
+
+"
